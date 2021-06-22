@@ -1,0 +1,12 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: service-consume
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+feign:
+  hystrix:
+    enabled: true
