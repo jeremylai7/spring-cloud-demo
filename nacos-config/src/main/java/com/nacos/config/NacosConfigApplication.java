@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@NacosPropertySource(dataId = "nacos-config.yml",autoRefreshed = true)
+@NacosPropertySource(dataId = "nacos-config",autoRefreshed = true)
 public class NacosConfigApplication {
 
     public static void main(String[] args) {

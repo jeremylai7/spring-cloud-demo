@@ -20,6 +20,11 @@ public class TestController {
     @Autowired
     private TestConfig testConfig;
 
+    /**
+     * 使用@NacosValues可以自动更新配置
+     * 使用@Value不能自动更新配置
+     * @return
+     */
     @GetMapping("/config")
     public String testConfig(){
         String aa = testConfig.getTest();
