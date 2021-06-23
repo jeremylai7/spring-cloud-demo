@@ -23,6 +23,6 @@ public class TestController {
     @GetMapping("/config")
     public String testConfig(){
         String aa = testConfig.getTest();
-        return "第一种方式:" + aa  + ",第二种方式:" + test;
+        return "第一种方式:" + aa  + ",第二种方式:" + test + ",第三种方式：" + testConfig.getTest2();
     }
 }

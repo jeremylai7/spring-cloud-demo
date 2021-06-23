@@ -26,6 +26,7 @@
         <java.version>1.8</java.version>
         <springcloud.version>2.0.4.RELEASE</springcloud.version>
         <springcloud.nacos.version>0.2.2.RELEASE</springcloud.nacos.version>
+        <nacos.config.version>0.2.7</nacos.config.version>
     </properties>
 
     <dependencyManagement>
@@ -36,10 +37,16 @@
                 <version>${springcloud.nacos.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>${nacos.config.version}</version>
+            </dependency>
+
+<!--            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
                 <version>${springcloud.nacos.version}</version>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
