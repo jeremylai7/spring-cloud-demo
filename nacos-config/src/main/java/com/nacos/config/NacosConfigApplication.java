@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+/**
+ * 这里面的dataId要和nacos配置中心的dataId保持一致
+ */
 @NacosPropertySource(dataId = "nacos-config",autoRefreshed = true)
 public class NacosConfigApplication {
 
