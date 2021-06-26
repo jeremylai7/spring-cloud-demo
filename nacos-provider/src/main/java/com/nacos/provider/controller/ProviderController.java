@@ -18,7 +18,7 @@ public class ProviderController {
 
 	@GetMapping("/hello")
 	public String hello(String name){
+		name.toString();
 		return "hello4  " + name + " port:" + environment.getProperty("local.server.port");
 	}
-
 }
