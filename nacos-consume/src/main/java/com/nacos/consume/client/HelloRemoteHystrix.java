@@ -12,6 +12,6 @@ public class HelloRemoteHystrix implements ProductClient{
 
     @Override
     public String product(String name) {
-        return "network is faile " + name;
+        return "哎呦喂，服务崩溃了，请再试一次" + name;
     }
 }
