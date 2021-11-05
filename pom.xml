@@ -41,12 +41,19 @@
                 <artifactId>nacos-config-spring-boot-starter</artifactId>
                 <version>${nacos.config.version}</version>
             </dependency>
-
-<!--            <dependency>
+            <!-- hystrix -->
+            <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-                <version>${springcloud.nacos.version}</version>
-            </dependency>-->
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${springcloud.version}</version>
+            </dependency>
+
+
+            <!--            <dependency>
+                            <groupId>org.springframework.cloud</groupId>
+                            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                            <version>${springcloud.nacos.version}</version>
+                        </dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
