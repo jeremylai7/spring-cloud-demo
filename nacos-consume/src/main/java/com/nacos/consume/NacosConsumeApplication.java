@@ -11,7 +11,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class NacosConsumeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NacosConsumeApplication.class, args);
+        new SpringApplication(NacosConsumeApplication.class).run(args);
+
+        //SpringApplication.run(NacosConsumeApplication.class, args);
     }
 
 }
