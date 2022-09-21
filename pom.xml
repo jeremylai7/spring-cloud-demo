@@ -13,6 +13,7 @@
         <module>nacos-provide-second</module>
         <module>nacos-consume</module>
         <module>nacos-config</module>
+        <module>nacos-provide-order</module>
     </modules>
 
     <parent>
