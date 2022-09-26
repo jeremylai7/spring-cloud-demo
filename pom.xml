@@ -14,6 +14,7 @@
         <module>nacos-consume</module>
         <module>nacos-config</module>
         <module>nacos-provide-order</module>
+        <module>nacos-provide-stock</module>
     </modules>
 
     <parent>

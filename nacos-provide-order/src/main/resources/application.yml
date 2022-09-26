@@ -1,3 +1,14 @@
-seata:
-  enabled: true
-
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 34.81.32.251:8848
+  datasource:
+    url: jdbc:mysql://34.81.32.251:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Lzc123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: nacos-order
+server:
+  port: 8040
