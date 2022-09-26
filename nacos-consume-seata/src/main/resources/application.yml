@@ -1,0 +1,37 @@
+server:
+  port: 8042
+spring:
+  application:
+    name: nacos-seata-consume123
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 34.81.32.251:8848
+  datasource:
+    url: jdbc:mysql://34.81.32.251:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Lzc123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+seata:
+  config:
+    type: nacos
+    nacos:
+      server-addr: 34.81.32.251:8848
+      group: DEFAULT_GROUP
+      namespace: e78b52c7-ca80-44f2-9f73-89050aab855c
+      username: nacos
+      password: nacos
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 34.81.32.251:8848
+      group: DEFAULT_GROUP
+      namespace: e78b52c7-ca80-44f2-9f73-89050aab855c
+      username: nacos
+      password: nacos
+  # 配置服务分组
+  tx-service-group: default_tx_group
+  service:
+    vgroup-mapping:
+      default_tx_group: default
