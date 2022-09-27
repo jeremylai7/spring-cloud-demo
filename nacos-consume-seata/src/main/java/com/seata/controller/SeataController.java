@@ -22,8 +22,8 @@ public class SeataController {
     @Transactional(rollbackFor = Exception.class)
     @GlobalTransactional
     public String seata(Integer num) {
-        String result = restTemplate.getForObject("http://nacos-order/order",String.class);
-        String result2 = restTemplate.getForObject("http://nacos-stock/stock?num="+num,String.class);
+        String result = restTemplate.getForObject("http://nacos-provide-order/order",String.class);
+        String result2 = restTemplate.getForObject("http://nacos-provide-stock/stock?num="+num,String.class);
         System.out.println(result);
         return "ok";
     }

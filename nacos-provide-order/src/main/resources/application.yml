@@ -9,6 +9,6 @@ spring:
     password: Lzc123456
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
-    name: nacos-order
+    name: nacos-provide-order
 server:
   port: 8040

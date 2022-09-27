@@ -6,20 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="nacos-provide-second" />
         <module name="nacos-config" />
+        <module name="nacos-consume-seata" />
         <module name="nacos-consume" />
         <module name="nacos-provider" />
-        <module name="spring-cloud-demo" />
-        <module name="nacos-provide-second" />
+        <module name="nacos-provide-order" />
+        <module name="nacos-stock" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-cloud-consumer-hystrix" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="nacos-config" options="-parameters" />
       <module name="nacos-consume" options="-parameters" />
+      <module name="nacos-consume-seata" options="-parameters" />
+      <module name="nacos-provide-order" options="-parameters" />
       <module name="nacos-provide-second" options="-parameters" />
       <module name="nacos-provider" options="-parameters" />
+      <module name="nacos-stock" options="-parameters" />
       <module name="spring-cloud-demo" options="-parameters" />
     </option>
   </component>

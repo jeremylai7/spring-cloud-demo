@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * @Auther: laizc
- * @Date: 2020/1/16 22:03
- * @Description:
+ * @auther: laizc
+ * @date: 2020/1/16 22:03
+ * @desc:
  */
-@FeignClient(value = "service-provider",fallback = HelloRemoteHystrix.class)
+@FeignClient(value = "service-provider")
 public interface ProductClient {
 
     @GetMapping("/hello")

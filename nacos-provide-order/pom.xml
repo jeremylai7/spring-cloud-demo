@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.order</groupId>
-    <artifactId>nacos-order</artifactId>
+    <artifactId>nacos-provide-order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>nacos-order</name>
+    <name>nacos-provide-order</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
