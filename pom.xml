@@ -7,6 +7,7 @@
     <groupId>com</groupId>
     <artifactId>spring-cloud-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>nacos-provider</module>

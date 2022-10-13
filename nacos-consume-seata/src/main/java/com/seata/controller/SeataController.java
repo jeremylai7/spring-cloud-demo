@@ -1,5 +1,6 @@
 package com.seata.controller;
 
+import com.seata.service.SeataService;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,15 +17,11 @@ import org.springframework.web.client.RestTemplate;
 public class SeataController {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private SeataService seataService;
 
     @GetMapping("/seata")
-    @Transactional(rollbackFor = Exception.class)
-    @GlobalTransactional
     public String seata(Integer num) {
-        String result = restTemplate.getForObject("http://nacos-order/order",String.class);
-        String result2 = restTemplate.getForObject("http://nacos-stock/stock?num="+num,String.class);
-        System.out.println(result);
+        seataService.placeOrder(num);
         return "ok";
     }
 

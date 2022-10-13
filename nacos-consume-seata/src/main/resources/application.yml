@@ -7,6 +7,7 @@ spring:
     nacos:
       discovery:
         server-addr: 34.81.32.251:8848
+        namespace: 96c38075-ceee-4a22-b69d-d0d14b8a2449
   datasource:
     url: jdbc:mysql://34.81.32.251:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
@@ -18,7 +19,7 @@ seata:
     nacos:
       server-addr: 34.81.32.251:8848
       group: DEFAULT_GROUP
-      namespace: e78b52c7-ca80-44f2-9f73-89050aab855c
+      namespace: 96c38075-ceee-4a22-b69d-d0d14b8a2449
       username: nacos
       password: nacos
   registry:
@@ -27,11 +28,11 @@ seata:
       application: seata-server
       server-addr: 34.81.32.251:8848
       group: DEFAULT_GROUP
-      namespace: e78b52c7-ca80-44f2-9f73-89050aab855c
+      namespace: 96c38075-ceee-4a22-b69d-d0d14b8a2449
       username: nacos
       password: nacos
   # 配置服务分组
   tx-service-group: default_tx_group
   service:
-    vgroup-mapping:
+    vgroupMapping:
       default_tx_group: default
