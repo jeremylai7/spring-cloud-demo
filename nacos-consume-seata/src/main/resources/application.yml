@@ -34,5 +34,5 @@ seata:
   # 配置服务分组
   tx-service-group: default_tx_group
   service:
-    vgroup-mapping:
+    vgroupMapping:
       default_tx_group: default
