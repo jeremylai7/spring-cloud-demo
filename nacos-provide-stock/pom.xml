@@ -61,7 +61,7 @@
             <version>1.2.4</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
     </dependencies>
