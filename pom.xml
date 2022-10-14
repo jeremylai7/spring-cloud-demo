@@ -29,7 +29,7 @@
     <properties>
         <java.version>1.8</java.version>
         <springcloud.version>2.0.4.RELEASE</springcloud.version>
-        <springcloud.nacos.version>0.2.2.RELEASE</springcloud.nacos.version>
+        <springcloud.nacos.version>0.9.0.RELEASE</springcloud.nacos.version>
         <nacos.config.version>0.2.7</nacos.config.version>
     </properties>
 
