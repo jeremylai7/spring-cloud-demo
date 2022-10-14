@@ -3,7 +3,7 @@ spring:
     nacos:
       discovery:
         server-addr: 34.81.32.251:8848
-        namespace: 96c38075-ceee-4a22-b69d-d0d14b8a2449
+        namespace: 68468122-8955-45ee-a5b7-3d87972325b1
   datasource:
     url: jdbc:mysql://34.81.32.251:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root

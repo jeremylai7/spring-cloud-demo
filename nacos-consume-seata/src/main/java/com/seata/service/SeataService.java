@@ -1,6 +1,6 @@
 package com.seata.service;
 
-import io.seata.spring.annotation.GlobalTransactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +18,7 @@ public class SeataService {
     private RestTemplate restTemplate;
 
     @Transactional(rollbackFor = Exception.class)
-    @GlobalTransactional
+
     public void placeOrder(Integer num) {
         String result = restTemplate.getForObject("http://nacos-provide-order/order",String.class);
         String result2 = restTemplate.getForObject("http://nacos-provide-stock/stock?num="+num,String.class);

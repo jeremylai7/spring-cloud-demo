@@ -1,7 +1,7 @@
 package com.seata.controller;
 
 import com.seata.service.SeataService;
-import io.seata.spring.annotation.GlobalTransactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
