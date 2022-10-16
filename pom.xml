@@ -91,6 +91,13 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>8.0.12</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/io.seata/seata-spring-boot-starter -->
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>1.5.1</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

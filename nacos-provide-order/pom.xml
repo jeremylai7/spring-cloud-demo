@@ -76,6 +76,7 @@
     </dependencies>
 
     <build>
+        <finalName>nacos-provide-order</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
