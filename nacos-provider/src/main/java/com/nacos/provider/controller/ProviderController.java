@@ -19,7 +19,7 @@ public class ProviderController {
 	@GetMapping("/hello")
 	public String hello(String name){
 		//测试熔断器 1.传入非空返回正常值 2、传入空值报错，触发熔断方法
-		name.toString();
+		//name.toString();
 		return "hello4  " + name + " port:" + environment.getProperty("local.server.port");
 	}
 }

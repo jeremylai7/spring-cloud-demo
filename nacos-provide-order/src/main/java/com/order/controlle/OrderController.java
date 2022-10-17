@@ -2,6 +2,7 @@ package com.order.controlle;
 
 import com.order.dao.OrderDao;
 import com.order.model.Order;
+import io.seata.core.context.RootContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +28,7 @@ public class OrderController {
      */
     @GetMapping("/order")
     public String order() {
+        System.out.println("全局xid" + RootContext.getXID());
         Order order = new Order();
         order.setNum(BigDecimal.TEN);
         order.setPrice(BigDecimal.TEN);

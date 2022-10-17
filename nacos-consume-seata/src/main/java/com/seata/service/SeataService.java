@@ -1,6 +1,9 @@
 package com.seata.service;
 
 
+import com.seata.client.OrderClient;
+import com.seata.client.StockClient;
+import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +21,27 @@ public class SeataService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private OrderClient orderClient;
+
+    @Autowired
+    private StockClient stockClient;
+
     @GlobalTransactional(rollbackFor = Exception.class)
     @Transactional(rollbackFor = Exception.class)
-    public void placeOrder(Integer num) {
-        String result = restTemplate.getForObject("http://nacos-provide-order/order",String.class);
-        String result2 = restTemplate.getForObject("http://nacos-provide-stock/stock?num="+num,String.class);
+    public void placeOrder(Integer num) throws Exception{
+        System.out.println("全局xid" + RootContext.getXID());
+        /*String result = restTemplate.getForObject("http://nacos-provide-order/order",String.class);
+        try {
+            String result2 = restTemplate.getForObject("http://nacos-provide-stock/stock?num="+num,String.class);
+        } catch (Exception e) {
+            throw new Exception();
+        }*/
+
+        // feign 调用
+        orderClient.order();
+        stockClient.stock(num);
+
         System.out.println("result");
     }
 

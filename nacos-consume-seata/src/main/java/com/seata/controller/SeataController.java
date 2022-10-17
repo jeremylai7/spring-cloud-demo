@@ -20,7 +20,7 @@ public class SeataController {
     private SeataService seataService;
 
     @GetMapping("/seata")
-    public String seata(Integer num) {
+    public String seata(Integer num) throws Exception {
         seataService.placeOrder(num);
         return "ok";
     }
