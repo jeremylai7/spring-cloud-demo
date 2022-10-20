@@ -1,12 +1,13 @@
 package com.stock.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -15,12 +16,11 @@ import java.util.Date;
  * @date: created in 2022/9/24
  * @desc:
  **/
-@Table(name = "t_stock")
-@Getter
-@Setter
+@Data
+@Accessors(chain = true)
+@TableName("t_stock")
 public class Stock {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
