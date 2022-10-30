@@ -29,8 +29,23 @@
         <mybatis-plus-boot-starter.version>3.3.0</mybatis-plus-boot-starter.version>
     </properties>
 
+    <!--dependencies 引入的依赖，子模块都会继承，这里添加每个模块都需要的依赖-->
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--<dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
@@ -39,11 +54,10 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <!-- Seata -->
+        &lt;!&ndash; Seata &ndash;&gt;
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
-            <version>${spring-cloud-alibaba.version}</version>
         </dependency>
 
         <dependency>
@@ -62,7 +76,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.12</version>
         </dependency>
-        <!-- mybatis -->
+        &lt;!&ndash; mybatis &ndash;&gt;
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -75,16 +89,18 @@
             <version>1.4.2</version>
         </dependency>
 
-        <!--feign-->
+        &lt;!&ndash;feign&ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
             <version>2.2.6.RELEASE</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
+    <!--dependencyManagement 引入的依赖，子类不会继承，而是子类依赖无需指定版本号-->
     <dependencyManagement>
         <dependencies>
+            <!--保证子模块所有 groupId 为 org.springframework.cloud 相关的依赖版本保持一致-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -92,7 +108,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <!--保证子模块所有 groupId 为 com.alibaba.cloud 相关的依赖版本保持一致-->
             <!--Spring Cloud Alibaba-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
@@ -103,15 +119,30 @@
             </dependency>
 
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.18.4</version>
-            </dependency>
-
-            <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>8.0.28</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+            <!--seata-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>1.4.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>2.2.6.RELEASE</version>
             </dependency>
 
         </dependencies>
