@@ -3,6 +3,7 @@ package com.nacos.config.controller;
 import com.nacos.config.config.TestConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
+@RefreshScope
 public class TestController {
 
-    @Value(value = "${test:null}")
+    @Value(value = "${user.name:null}")
     private String test;
 
     @Autowired
@@ -28,6 +30,7 @@ public class TestController {
     @GetMapping("/config")
     public String testConfig(){
         String aa = testConfig.getTest();
+        //第一种方式要添加 nacos-config-spring-boot-starter 才能使用 @NacosValue 注解获取数据
         return "第一种方式:" + aa  + ",第二种方式:" + test + ",第三种方式：" + testConfig.getTest2();
     }
 }

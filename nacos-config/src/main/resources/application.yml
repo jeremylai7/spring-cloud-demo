@@ -1,8 +1,5 @@
 server:
   port: 8010
-nacos:
-  config:
-    server-addr: 34.81.32.251:8848
-    namespace: 68468122-8955-45ee-a5b7-3d87972325b1
+
 
 
