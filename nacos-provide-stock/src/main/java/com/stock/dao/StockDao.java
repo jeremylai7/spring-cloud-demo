@@ -1,16 +1,31 @@
 package com.stock.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.stock.model.Stock;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Param;
+
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author: laizc
  * @date: created in 2022/9/24
  * @desc:
  **/
-@Mapper
-@Repository
-public interface StockDao extends BaseMapper<Stock> {
+public interface StockDao{
+
+    /**
+     * 减库存
+     * @param id
+     * @param num
+     * @param createTime
+     */
+    void reduceStock(@Param("id") Long id,@Param("num") BigDecimal num,@Param("createTime") Date createTime);
+
+
+    /**
+     * 根据id获取数据
+     * @param id
+     * @return
+     */
+    Stock selectById(@Param("id")Long id);
 }

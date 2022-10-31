@@ -1,12 +1,8 @@
 package com.stock.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -16,11 +12,10 @@ import java.util.Date;
  * @date: created in 2022/9/24
  * @desc:
  **/
-@Data
-@Accessors(chain = true)
-@TableName("t_stock")
+@Getter
+@Setter
 public class Stock {
-    @TableId(type = IdType.AUTO)
+
     private Long id;
 
     /**
