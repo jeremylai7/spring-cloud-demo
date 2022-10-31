@@ -7,11 +7,4 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-  datasource:
-    url: jdbc:mysql://47.98.202.133:3306/blog?useSSL=false&characterEncoding=UTF-8
-    username: root
-    password: test123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
 
