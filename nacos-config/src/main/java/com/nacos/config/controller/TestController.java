@@ -23,8 +23,8 @@ public class TestController {
     private TestConfig testConfig;
 
     /**
-     * 使用@NacosValues可以自动更新配置
-     * 使用@Value不能自动更新配置
+     * 使用 nacos-config-spring-boot-starter 才能使用@NacosValues配置
+     * 使用@Value需要添加@RefreshScope实现自动更新配置
      * @return
      */
     @GetMapping("/config")
