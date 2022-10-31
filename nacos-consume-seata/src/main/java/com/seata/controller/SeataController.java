@@ -1,7 +1,9 @@
 package com.seata.controller;
 
+import com.seata.config.SpringContextUtil;
 import com.seata.service.SeataService;
 
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,12 @@ public class SeataController {
     public String seata(Integer num) throws Exception {
         seataService.placeOrder(num);
         return "ok";
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        HikariDataSource aa =(HikariDataSource) SpringContextUtil.getBean("dataSource");
+        return "aa";
     }
 
 }

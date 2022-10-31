@@ -105,7 +105,7 @@
     <!--dependencyManagement 引入的依赖，子类不会继承，而是子类依赖无需指定版本号-->
     <dependencyManagement>
         <dependencies>
-            <!--保证子模块所有 groupId 为 org.springframework.cloud 相关的依赖版本保持一致-->
+            <!--保证子模块所有 groupId 为 org.springframework.boot 相关的依赖版本保持一致-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -119,6 +119,13 @@
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -147,7 +154,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>2.2.6.RELEASE</version>
+                <version>${springcloud.version}</version>
             </dependency>
             <!--mybatis-->
             <dependency>
@@ -160,6 +167,20 @@
                 <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
                 <version>2.2.7.RELEASE</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>30.1.1-jre</version>
+            </dependency>
+
+
+            <!--<dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>2.2.9.RELEASE</version>
+                <type>pom</type>
+            </dependency>-->
+
 
 
 
