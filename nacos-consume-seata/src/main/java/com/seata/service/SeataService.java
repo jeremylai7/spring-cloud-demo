@@ -38,7 +38,7 @@ public class SeataService {
             throw new Exception();
         }*/
 
-        // feign 调用
+        // 创建订单，库存够，成功。库存不够，报错回滚订单。
         orderClient.order();
         stockClient.stock(num);
 

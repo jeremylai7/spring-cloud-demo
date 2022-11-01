@@ -40,4 +40,5 @@ nacos:
   config:
     server-addr: 127.0.0.1:8848
     namespace: 68468122-8955-45ee-a5b7-3d87972325b1
-
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

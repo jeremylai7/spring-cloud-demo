@@ -1,9 +1,6 @@
 package com.order.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.order.model.Order;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 
 /**
@@ -11,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * @date: created in 2022/9/24
  * @desc:
  **/
-@Mapper
-@Repository
-public interface OrderDao extends BaseMapper<Order> {
+public interface OrderDao{
+
+    void insert(Order order);
 }
