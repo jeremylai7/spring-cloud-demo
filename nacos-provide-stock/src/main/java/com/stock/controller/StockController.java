@@ -3,6 +3,7 @@ package com.stock.controller;
 import com.stock.dao.StockDao;
 import com.stock.model.Stock;
 //import io.seata.core.context.RootContext;
+import io.seata.core.context.RootContext;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +30,7 @@ public class StockController {
     @GetMapping("/stock")
     @Transactional(rollbackFor = Exception.class)
     public String stock(BigDecimal num) throws Exception {
-        //System.out.println("全局xid" + RootContext.getXID());
+        System.out.println("全局xid" + RootContext.getXID());
         Stock stock = stockDao.selectById(Long.valueOf(1));
         // 实际流程，库存不够才报错
         //if (num.compareTo(stock.getNum()) == -1) {
