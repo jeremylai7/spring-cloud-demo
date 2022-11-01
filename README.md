@@ -1,15 +1,20 @@
 # Spring Cloud 微服务入门配置
 本项目是Spring Cloud 微服务搭建
-* 注册中心和配置中心使用了 alibaba 开源组件 nacos。
-* 服务消费使用 feign 和 ribbon。
+* 注册中心和配置中心使用了 `alibaba` 开源组件 `nacos`。
+* 服务消费使用 `feign` 和 `ribbon`。
+* 分布式事务使用 `seata`。
 
 
 # 服务和端口说明
+
 |服务名称|端口|
 |:----:|:----:|
 |service-provider|8020、8021|
 |service-consume|8030|
 |service-config|8010|
+|nacos-provide-stock|8041|
+|nacos-provide-order|8040|
+|nacos-consume-seata|8042|
 
 # 搭建教程
 
