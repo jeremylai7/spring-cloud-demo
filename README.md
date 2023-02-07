@@ -18,10 +18,11 @@
 
 # 搭建教程
 
-## 注册中心
+## 注册中心 Nacos
 
 * [Spring Cloud 微服务实战——nacos 服务注册中心搭建](https://www.cnblogs.com/jeremylai7/p/15497219.html)
 * [Spring Cloud Alibaba 使用 feign 和 rebion 进行服务消费](https://www.cnblogs.com/jeremylai7/p/15515666.html)
+* [Nacos 服务注册原理分析](https://github.com/jeremylai7/blog/blob/origin/2023%E5%B9%B42%E6%9C%88/Nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.md)
 
 ## 动态配置中心
 
