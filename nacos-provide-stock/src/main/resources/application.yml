@@ -1,11 +1,14 @@
 spring:
   cloud:
+    alibaba:
+      seata:
+        tx-service-group: default_tx_group
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
         namespace: 68468122-8955-45ee-a5b7-3d87972325b1
   datasource:
-    url: jdbc:mysql://34.81.32.251:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://34.80.215.211:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: Lzc123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -31,11 +34,6 @@ seata:
       namespace: 68468122-8955-45ee-a5b7-3d87972325b1
       username: nacos
       password: nacos
-  # 配置服务分组
-  tx-service-group: default_tx_group
-  service:
-    vgroupMapping:
-      default_tx_group: default
   enable-auto-data-source-proxy: false
 nacos:
   config:
