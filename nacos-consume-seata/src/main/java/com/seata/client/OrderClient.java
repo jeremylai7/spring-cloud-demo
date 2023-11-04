@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface OrderClient {
 
     @GetMapping("/order")
-    public String order();
+    String order();
 }
