@@ -1,0 +1,23 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: springcloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: "provide"
+          uri: http://127.0.0.1:8020
+          predicates:
+            - Path=/provide/**
+          filters:
+            - RewritePath=/provide/(?<segment>.*), /${segment}
+        - id: "consume"
+          uri: http://127.0.0.1:8030
+          predicates:
+            - Path=/consume/*
+          filters:
+            - RewritePath=/consume/(?<segment>.*), /${segment}
