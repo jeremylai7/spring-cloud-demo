@@ -6,17 +6,19 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 127.0.0.1:8849
     gateway:
       routes:
         - id: "provide"
-          uri: http://127.0.0.1:8020
+          #uri: http://127.0.0.1:8020
+          uri: lb://service-provider
           predicates:
             - Path=/provide/**
           filters:
             - RewritePath=/provide/(?<segment>.*), /${segment}
         - id: "consume"
-          uri: http://127.0.0.1:8030
+          #uri: http://127.0.0.1:8030
+          uri: lb://service-consume
           predicates:
             - Path=/consume/*
           filters:
