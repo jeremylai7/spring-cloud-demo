@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8849
+        server-addr: 127.0.0.1:8898
     gateway:
       routes:
         - id: "provide"
@@ -23,3 +23,6 @@ spring:
             - Path=/consume/*
           filters:
             - RewritePath=/consume/(?<segment>.*), /${segment}
+      httpclient:
+        connect-timeout: 1000
+        response-timeout: 3s
