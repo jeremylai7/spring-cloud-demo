@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.CompletableFuture;
+
 /**
  * @Auther: laizc
  * @Date: 2020/1/16 21:07
@@ -21,6 +23,20 @@ public class FeignController {
     @GetMapping("/feign")
     public String feign(String name){
         return productClient.product(name);
+    }
+
+    @GetMapping("feign-async")
+    public String feignAsync(String name) {
+        CompletableFuture.runAsync(() -> {
+            try {
+                Thread.sleep(5000);
+                String result = productClient.product(name);
+                System.out.println(result);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        return "ok";
     }
 
 
