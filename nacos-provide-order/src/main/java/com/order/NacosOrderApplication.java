@@ -8,15 +8,11 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 @MapperScan("com.order.dao")
-public class NacosOrderApplication  extends SpringBootServletInitializer {
+public class NacosOrderApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(NacosOrderApplication.class, args);
     }
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(NacosOrderApplication.class);
-    }
 
 }
