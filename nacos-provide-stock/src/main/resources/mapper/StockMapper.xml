@@ -20,7 +20,7 @@
     </select>
 
     <update id="reduceStock">
-        update t_stock set num = #{num},create_time = #{createTime} where id = #{id}
+        update t_stock set num = num - #{num},create_time = #{createTime} where id = #{id}
     </update>
 
 </mapper>

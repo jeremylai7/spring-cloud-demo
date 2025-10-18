@@ -40,5 +40,5 @@ seata:
   enable-auto-data-source-proxy: false
 nacos:
   config:
-    server-addr: 127.0.0.1:8848
-    namespace: 68468122-8955-45ee-35b7-3087972325b1
+    server-addr: ${NACOS_HOST}:${NACOS_PORT}
+    namespace: ${NACOS_NAMESPACE}

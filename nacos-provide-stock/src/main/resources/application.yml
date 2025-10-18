@@ -5,12 +5,14 @@ spring:
         tx-service-group: default_tx_group
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
-        namespace: 68468122-8955-45ee-a5b7-3d87972325b1
+        server-addr: ${NACOS_HOST}:${NACOS_PORT}
+        namespace: ${NACOS_NAMESPACE}
+        username: ${NACOS_USERNAME}
+        password: ${NACOS_PASSWORD}
   datasource:
-    url: jdbc:mysql://34.80.215.211:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username: root
-    password: Lzc123456
+    url: jdbc:mysql://${MYSQL_IP}:${MYSQL_PORT}/seata_stock?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: nacos-provide-stock
@@ -20,22 +22,22 @@ seata:
   config:
     type: nacos
     nacos:
-      server-addr: 127.0.0.1:8848
+      server-addr: ${NACOS_HOST}:${NACOS_PORT}
       group: SEATA_GROUP
-      namespace: 68468122-8955-45ee-a5b7-3d87972325b1
-      username: nacos
-      password: nacos
+      namespace: ${NACOS_NAMESPACE}
+      username: ${NACOS_USERNAME}
+      password: ${NACOS_PASSWORD}
   registry:
     type: nacos
     nacos:
       application: seata-server
-      server-addr: 127.0.0.1:8848
+      server-addr: ${NACOS_HOST}:${NACOS_PORT}
       group: SEATA_GROUP
-      namespace: 68468122-8955-45ee-a5b7-3d87972325b1
-      username: nacos
-      password: nacos
+      namespace: ${NACOS_NAMESPACE}
+      username: ${NACOS_USERNAME}
+      password: ${NACOS_PASSWORD}
   enable-auto-data-source-proxy: false
 nacos:
   config:
-    server-addr: 127.0.0.1:8848
-    namespace: 68468122-8955-45ee-a5b7-3d87972325b1
+    server-addr: ${NACOS_HOST}:${NACOS_PORT}
+    namespace: ${NACOS_NAMESPACE}
