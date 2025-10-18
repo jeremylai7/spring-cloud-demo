@@ -30,8 +30,6 @@
 
     <!--dependencies 引入的依赖，子模块都会继承，这里添加每个模块都需要的依赖-->
     <dependencies>
-
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
