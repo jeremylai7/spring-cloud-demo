@@ -38,6 +38,12 @@ public class DataSourceProxyConfig {
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
                 .getResources("classpath*:/mapper/*.xml"));
         sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
+
+        org.apache.ibatis.session.Configuration cfg = new org.apache.ibatis.session.Configuration();
+        cfg.setMapUnderscoreToCamelCase(true);
+        cfg.setLogImpl(org.apache.ibatis.logging.stdout.StdOutImpl.class);
+        sqlSessionFactoryBean.setConfiguration(cfg);
+
         return sqlSessionFactoryBean.getObject();
     }
 
