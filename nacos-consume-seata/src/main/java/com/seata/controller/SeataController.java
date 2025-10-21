@@ -33,4 +33,10 @@ public class SeataController {
         return "aa";
     }
 
+    @GetMapping("/seataUpdate")
+    public String seataUpate(Integer num) throws Exception {
+        seataService.updatePlaceOrder(num);
+        return "ok";
+    }
+
 }

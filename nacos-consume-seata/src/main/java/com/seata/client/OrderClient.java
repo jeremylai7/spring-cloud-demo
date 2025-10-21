@@ -13,4 +13,7 @@ public interface OrderClient {
 
     @GetMapping("/order")
     String order();
+
+    @GetMapping("/orderUpdate")
+    String orderUpdate();
 }

@@ -1,6 +1,7 @@
 package com.order.dao;
 
 import com.order.model.Order;
+import org.apache.ibatis.annotations.Param;
 
 
 /**
@@ -11,4 +12,8 @@ import com.order.model.Order;
 public interface OrderDao{
 
     void insert(Order order);
+
+    void update(Order order);
+
+    Order selectById(@Param("id") Long id);
 }

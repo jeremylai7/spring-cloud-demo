@@ -30,16 +30,16 @@ public class StockController {
     @GetMapping("/stock")
     @Transactional(rollbackFor = Exception.class)
     public String stock(BigDecimal num) throws Exception {
+        num = num == null ? BigDecimal.ONE : num;
         System.out.println("全局xid" + RootContext.getXID());
         Stock stock = stockDao.selectById(Long.valueOf(1));
+        // 减库存
+        stockDao.reduceStock(1L,num,new Date());
         // 实际流程，库存不够才报错
-        //if (num.compareTo(stock.getNum()) == -1) {
         // 方便模拟流程，输入 10 就报错
         if (num.compareTo(BigDecimal.TEN) == 0) {
             throw new Exception("报错，回滚");
         }
-        // 减库存
-        stockDao.reduceStock(1L,num,new Date());
         return "ok";
     }
 }

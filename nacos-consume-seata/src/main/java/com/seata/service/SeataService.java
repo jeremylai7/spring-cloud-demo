@@ -45,6 +45,14 @@ public class SeataService {
         System.out.println("result");
     }
 
+    @GlobalTransactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
+    public void updatePlaceOrder(Integer num) {
+        System.out.println("全局xid" + RootContext.getXID());
+        // 更新订单，回滚测试
+        orderClient.orderUpdate();
+        stockClient.stock(num);
+    }
 }
 
 

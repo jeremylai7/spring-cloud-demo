@@ -38,4 +38,16 @@ public class OrderController {
         return "ok";
     }
 
+    @GetMapping("/orderUpdate")
+    public String orderUpdate() {
+        System.out.println("全局xid" + RootContext.getXID());
+        Order order = orderDao.selectById(32L);
+        order.setNum(order.getNum().add(BigDecimal.ONE));
+        order.setPrice(BigDecimal.TEN.subtract(BigDecimal.ONE));
+        order.setSn(order.getSn());
+        order.setCreateTime(order.getCreateTime());
+        orderDao.update(order);
+        return "ok";
+    }
+
 }

@@ -42,3 +42,14 @@ nacos:
   config:
     server-addr: ${NACOS_HOST}:${NACOS_PORT}
     namespace: ${NACOS_NAMESPACE}
+logging:
+  level:
+    # 生成与执行回滚SQL的关键包
+    io.seata.rm.datasource.exec: debug
+    io.seata.rm.datasource.undo: debug
+    io.seata.rm.datasource.sql: debug
+    # 连接代理与语句代理（有时有助于看到执行顺序）
+    io.seata.rm.datasource.ConnectionProxy: debug
+    io.seata.rm.datasource.StatementProxy: debug
+    io.seata.rm.datasource.PreparedStatementProxy: debug
+
