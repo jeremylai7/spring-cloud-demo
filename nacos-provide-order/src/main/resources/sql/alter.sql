@@ -16,7 +16,9 @@ create table t_stock (
 	`num` decimal(12,2) comment "库存剩余",
 	`create_time` timestamp not null default current_timestamp comment "创建时间",
 	primary key(`id`)
-)
+);
+
+insert into t_stock(`sn`,`num`) values ("仓库1",200);
 
 
 -- 每个关联的服务，都要加回滚表
@@ -33,4 +35,3 @@ CREATE TABLE `undo_log` (
     UNIQUE KEY `ux_undo_log` (`xid`,`branch_id`)
 )
 
-insert into t_stock(`sn`,`num`) values ("仓库1",200);
