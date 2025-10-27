@@ -15,4 +15,7 @@ public interface StockClient {
     @GetMapping("/stock")
     String stock(@RequestParam("num") Integer num);
 
+    @GetMapping("/tcc/stock")
+    String tccStock(@RequestParam("num") Integer num);
+
 }

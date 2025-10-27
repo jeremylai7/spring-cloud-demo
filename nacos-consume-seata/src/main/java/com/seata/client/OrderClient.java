@@ -16,4 +16,7 @@ public interface OrderClient {
 
     @GetMapping("/orderUpdate")
     String orderUpdate();
+
+    @GetMapping("/tcc/order")
+    String tccOrder();
 }
