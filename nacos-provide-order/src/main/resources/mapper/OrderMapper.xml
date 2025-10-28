@@ -28,4 +28,9 @@
             create_time = #{createTime,jdbcType=TIMESTAMP}
         where id = #{id,jdbcType=BIGINT}
     </update>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from t_order
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
 </mapper>

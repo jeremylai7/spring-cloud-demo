@@ -9,11 +9,13 @@ import org.apache.ibatis.annotations.Param;
  * @date: created in 2022/9/24
  * @desc:
  **/
-public interface OrderDao{
+public interface OrderDao {
 
     void insert(Order order);
 
     void update(Order order);
 
     Order selectById(@Param("id") Long id);
+
+    void deleteById(@Param("id") Long orderId);
 }

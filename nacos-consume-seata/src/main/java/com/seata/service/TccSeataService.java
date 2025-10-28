@@ -25,8 +25,5 @@ public class TccSeataService {
     public void placeOrder(Integer num) {
         orderClient.tccOrder();
         stockClient.tccStock(num);
-        // 报错回滚
-        int a  =1/0;
-
     }
 }

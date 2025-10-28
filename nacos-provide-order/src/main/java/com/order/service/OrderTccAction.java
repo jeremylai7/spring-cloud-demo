@@ -14,7 +14,7 @@ import io.seata.rm.tcc.api.TwoPhaseBusinessAction;
 public interface OrderTccAction {
 
     @TwoPhaseBusinessAction(name = "orderTccAction", commitMethod = "commit", rollbackMethod = "cancel")
-    boolean prepareCreateOrder(BusinessActionContext context, @BusinessActionContextParameter(paramName = "orderId") Long orderId);
+    Long prepareCreateOrder(BusinessActionContext context);
 
     boolean commit(BusinessActionContext context);
 

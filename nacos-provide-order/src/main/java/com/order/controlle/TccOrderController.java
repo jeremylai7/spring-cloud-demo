@@ -21,7 +21,7 @@ public class TccOrderController {
     @GetMapping("/order")
     public String order() {
         Long orderId = 1L;
-        orderTccAction.prepareCreateOrder(null,orderId);
+        orderTccAction.prepareCreateOrder(null);
         return "ok";
     }
 
