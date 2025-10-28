@@ -38,6 +38,7 @@ seata:
       username: ${NACOS_USERNAME}
       password: ${NACOS_PASSWORD}
   enable-auto-data-source-proxy: false
+  data-source-proxy-mode: NONE
 nacos:
   config:
     server-addr: ${NACOS_HOST}:${NACOS_PORT}

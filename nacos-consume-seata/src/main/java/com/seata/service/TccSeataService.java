@@ -24,6 +24,6 @@ public class TccSeataService {
     @GlobalTransactional(name = "tcc-create-order", rollbackFor = Exception.class)
     public void placeOrder(Integer num) {
         orderClient.tccOrder();
-        stockClient.tccStock(num);
+        //stockClient.tccStock(num);
     }
 }
