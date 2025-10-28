@@ -13,7 +13,7 @@
         where id = #{id,jdbcType=BIGINT}
     </select>
 
-    <insert id="insert" parameterType="com.order.model.Order">
+    <insert id="insert" parameterType="com.order.model.Order" useGeneratedKeys="true" keyProperty="id">
         insert into t_order (id,sn,num,price,create_time)
         values (#{id,jdbcType=BIGINT}, #{sn,jdbcType=VARCHAR},  #{num,jdbcType=DECIMAL},
                 #{price,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP})

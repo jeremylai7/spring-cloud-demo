@@ -7,6 +7,7 @@ import io.seata.rm.tcc.api.BusinessActionContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -26,6 +27,7 @@ public class OrderTccActionImpl implements OrderTccAction{
     private OrderDao orderDao;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Long prepareCreateOrder(BusinessActionContext context) {
         // 创建订单
         Order order = new Order();
@@ -34,24 +36,30 @@ public class OrderTccActionImpl implements OrderTccAction{
         order.setSn(UUID.randomUUID().toString());
         order.setCreateTime(new Date());
         orderDao.insert(order);
-        log.info("prepare 创建订单，orderId={}", order.getId());
-        context.getActionContext().put("orderId", order.getId());
-        return order.getId();
+        Long orderId = order.getId();
+        log.info("prepare 创建订单，orderId={}", orderId);
+        context.getActionContext().put("orderId", orderId);
+        return orderId;
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean commit(BusinessActionContext context) {
-        Long orderId = (Long) context.getActionContext("orderId");
+        Long orderId = getOrderId(context);
         log.info("commit 创建订单，orderId={}", orderId);
-        return false;
+        return true;
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public boolean cancel(BusinessActionContext context) {
-        Long orderId = (Long) context.getActionContext("orderId");
+        Long orderId = getOrderId(context);
         log.info("cancel 创建订单，orderId={}", orderId);
         orderDao.deleteById(orderId);
+        return true;
+    }
 
-        return false;
+    private Long getOrderId(BusinessActionContext context) {
+        return (Long) context.getActionContext("orderId");
     }
 }

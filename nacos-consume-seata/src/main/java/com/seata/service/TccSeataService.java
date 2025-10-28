@@ -3,6 +3,7 @@ package com.seata.service;
 import com.seata.client.OrderClient;
 import com.seata.client.StockClient;
 import io.seata.spring.annotation.GlobalTransactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
  * @desc:
  **/
 @Service
+@Slf4j
 public class TccSeataService {
 
     @Autowired
@@ -23,7 +25,9 @@ public class TccSeataService {
 
     @GlobalTransactional(name = "tcc-create-order", rollbackFor = Exception.class)
     public void placeOrder(Integer num) {
-        orderClient.tccOrder();
+        Long orderId = orderClient.tccOrder();
+        log.info("订单id");
+
         //stockClient.tccStock(num);
     }
 }

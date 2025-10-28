@@ -18,5 +18,5 @@ public interface OrderClient {
     String orderUpdate();
 
     @GetMapping("/tcc/order")
-    String tccOrder();
+    Long tccOrder();
 }
