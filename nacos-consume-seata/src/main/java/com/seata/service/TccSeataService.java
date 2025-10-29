@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 /**
  * @author: laizc
  * @date: created in 2025/10/27
@@ -24,10 +26,9 @@ public class TccSeataService {
 
 
     @GlobalTransactional(name = "tcc-create-order", rollbackFor = Exception.class)
-    public void placeOrder(Integer num) {
+    public void placeOrder(BigDecimal num) {
         Long orderId = orderClient.tccOrder();
-        log.info("订单id");
-
-        //stockClient.tccStock(num);
+        log.info("订单id：{}", orderId);
+        stockClient.tccStock(num);
     }
 }

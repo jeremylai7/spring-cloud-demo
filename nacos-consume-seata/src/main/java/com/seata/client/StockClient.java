@@ -4,6 +4,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.math.BigDecimal;
+
 /**
  * @author: laizc
  * @date: created in 2022/10/17
@@ -16,6 +18,6 @@ public interface StockClient {
     String stock(@RequestParam("num") Integer num);
 
     @GetMapping("/tcc/stock")
-    String tccStock(@RequestParam("num") Integer num);
+    String tccStock(@RequestParam("num") BigDecimal num);
 
 }

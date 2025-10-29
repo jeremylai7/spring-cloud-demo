@@ -23,4 +23,8 @@
         update t_stock set num = num - #{num},create_time = #{createTime} where id = #{id}
     </update>
 
+    <update id="increaseStock">
+        update t_stock set num = num + #{num},create_time = #{createTime} where id = #{id}
+    </update>
+
 </mapper>

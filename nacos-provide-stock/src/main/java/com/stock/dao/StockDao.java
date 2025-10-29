@@ -28,4 +28,11 @@ public interface StockDao{
      * @return
      */
     Stock selectById(@Param("id")Long id);
+
+    /**
+     * 回滚增加库存
+     * @param id
+     * @param num
+     */
+    void increaseStock(@Param("id")Long id,@Param("num") BigDecimal num,@Param("createTime") Date createTime);
 }
