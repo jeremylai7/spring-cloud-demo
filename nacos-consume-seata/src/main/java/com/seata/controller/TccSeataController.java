@@ -20,6 +20,13 @@ public class TccSeataController {
     @Autowired
     private TccSeataService tccSeataService;
 
+    /**
+     * Jmeter 模拟并发，库存超卖问题
+     * 设置库存 50，下单每次扣减5，开启500个线程，Ramp-Up 1sec，循环1次
+     *
+     *
+     */
+
     @GetMapping("/seata")
     public String seata(BigDecimal num) throws Exception {
         tccSeataService.placeOrder(num);

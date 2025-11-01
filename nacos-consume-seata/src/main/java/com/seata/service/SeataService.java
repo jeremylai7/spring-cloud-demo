@@ -27,14 +27,6 @@ public class SeataService {
     @Autowired
     private StockClient stockClient;
 
-    /**
-     * 模拟并发，库存超卖问题
-     * 设置库存 50，下单每次扣减5，开启500个线程，Ramp-Up 1sec，循环1次
-     *
-     *
-     *
-     */
-
     @GlobalTransactional(rollbackFor = Exception.class)
     @Transactional(rollbackFor = Exception.class)
     public void placeOrder(Integer num) throws Exception{

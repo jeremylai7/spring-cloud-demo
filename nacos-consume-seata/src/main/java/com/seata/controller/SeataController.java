@@ -21,6 +21,17 @@ public class SeataController {
     @Autowired
     private SeataService seataService;
 
+
+    /**
+     * Jmeter 模拟并发，库存超卖问题
+     * 设置库存 50，下单每次扣减5，开启500个线程，Ramp-Up 1sec，循环1次
+     * AT模式不适用高并发模式，新增订单后发现库存不足，无法撤回。
+     * 解决方案：TCC 模式
+     *
+     *
+     */
+
+
     @GetMapping("/seata")
     public String seata(Integer num) throws Exception {
         seataService.placeOrder(num);
