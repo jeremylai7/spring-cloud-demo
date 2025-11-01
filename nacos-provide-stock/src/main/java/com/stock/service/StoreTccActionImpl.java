@@ -26,6 +26,11 @@ public class StoreTccActionImpl implements StoreTccAction {
     public boolean prepareDeductStock(BusinessActionContext context,BigDecimal num) throws Exception {
         num = num == null ? BigDecimal.ONE : num;
         System.out.println("全局xid" + RootContext.getXID());
+        Stock stock = stockDao.selectById(Long.valueOf(1));
+        BigDecimal subtractNum =  stock.getNum().subtract(num);
+        if (subtractNum.compareTo(BigDecimal.ZERO) < 0) {
+            throw new Exception("库存不足 报错，回滚");
+        }
         // 减库存
         stockDao.reduceStock(1L,num,new Date());
         BusinessActionContextUtil.addContext("stockIdStr", "1");
