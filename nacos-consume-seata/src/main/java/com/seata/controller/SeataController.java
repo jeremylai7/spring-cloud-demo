@@ -30,8 +30,6 @@ public class SeataController {
      *
      *
      */
-
-
     @GetMapping("/seata")
     public String seata(Integer num) throws Exception {
         seataService.placeOrder(num);
