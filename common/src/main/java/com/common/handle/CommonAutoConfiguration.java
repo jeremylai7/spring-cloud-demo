@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
  * @date: 2025/12/10 16:20
  * @desc:
  */
-@Configuration
-public class CommonAutoConfiguration {
-    @Bean
-    public GlobalExceptionHandler globalExceptionHandler() {
-        return new GlobalExceptionHandler();
-    }
-}
+//@Configuration
+//public class CommonAutoConfiguration {
+//    @Bean
+//    public GlobalExceptionHandler globalExceptionHandler() {
+//        return new GlobalExceptionHandler();
+//    }
+//}

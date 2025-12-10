@@ -28,6 +28,7 @@ public class TccSeataController {
      */
     @GetMapping("/seata")
     public String seata(BigDecimal num) throws Exception {
+        int i = 1 / 0;
         tccSeataService.placeOrder(num);
         return "ok";
     }
