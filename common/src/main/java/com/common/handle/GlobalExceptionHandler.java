@@ -17,10 +17,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 public class GlobalExceptionHandler {
 
-    public GlobalExceptionHandler() {
-        System.out.println(">>> GlobalExceptionHandler loaded");
-    }
-
     /**
      * 业务异常处理
      * @param e
