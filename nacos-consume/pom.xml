@@ -16,6 +16,11 @@
     </parent>
 
     <dependencies>
+        <dependency>
+            <groupId>com</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--alibaba-nacos-discovery 添加了ribbon依赖，需要添加feign依赖即可-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
