@@ -1,5 +1,7 @@
 package com.seata.service;
 
+import com.common.exception.BusinessException;
+import com.common.wrapper.Wrapper;
 import com.seata.client.OrderClient;
 import com.seata.client.StockClient;
 import io.seata.spring.annotation.GlobalTransactional;
@@ -29,6 +31,10 @@ public class TccSeataService {
     public void placeOrder(BigDecimal num) {
         Long orderId = orderClient.tccOrder();
         log.info("订单id：{}", orderId);
-        stockClient.tccStock(num);
+        Wrapper<String> result = stockClient.tccStock(num);
+        if (!result.success()) {
+            throw new BusinessException(result.getMessage());
+        }
+        System.out.println(result);
     }
 }

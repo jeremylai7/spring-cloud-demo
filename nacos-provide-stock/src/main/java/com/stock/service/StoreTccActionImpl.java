@@ -1,5 +1,6 @@
 package com.stock.service;
 
+import com.common.exception.BusinessException;
 import com.stock.dao.StockDao;
 import com.stock.model.Stock;
 import io.seata.core.context.RootContext;
@@ -29,7 +30,7 @@ public class StoreTccActionImpl implements StoreTccAction {
         Stock stock = stockDao.selectById(Long.valueOf(1));
         BigDecimal subtractNum =  stock.getNum().subtract(num);
         if (subtractNum.compareTo(BigDecimal.ZERO) < 0) {
-            throw new Exception("库存不足 报错，回滚");
+            throw new BusinessException("库存不足 报错，回滚");
         }
         // 减库存
         stockDao.reduceStock(1L,num,new Date());
@@ -38,7 +39,7 @@ public class StoreTccActionImpl implements StoreTccAction {
         // 实际流程，库存不够才报错
         // 方便测试，输入 10 就报错
         if (num.compareTo(BigDecimal.TEN) == 0) {
-            throw new Exception("报错，回滚");
+            throw new BusinessException("报错，回滚");
         }
         return true;
     }

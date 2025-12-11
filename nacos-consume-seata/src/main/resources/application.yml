@@ -15,7 +15,7 @@ spring:
         username: ${NACOS_USERNAME}
         password: ${NACOS_PASSWORD}
   datasource:
-    url: jdbc:mysql://${MYSQL_IP}:${MYSQL_PORT}/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://${MYSQL_IP}:${MYSQL_PORT}/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: ${MYSQL_USERNAME}
     password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
