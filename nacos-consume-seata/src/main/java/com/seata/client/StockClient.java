@@ -1,5 +1,7 @@
 package com.seata.client;
 
+import com.common.Test;
+import com.common.wrapper.BaseResponse;
 import com.common.wrapper.Wrapper;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,6 @@ public interface StockClient {
     String stock(@RequestParam("num") Integer num);
 
     @GetMapping("/tcc/stock")
-    Wrapper<String> tccStock(@RequestParam("num") BigDecimal num);
+    BaseResponse<Test> tccStock(@RequestParam("num") BigDecimal num);
 
 }

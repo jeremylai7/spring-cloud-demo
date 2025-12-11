@@ -1,5 +1,7 @@
 package com.seata.client;
 
+import com.common.wrapper.WrapMapper;
+import com.common.wrapper.Wrapper;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -18,5 +20,5 @@ public interface OrderClient {
     String orderUpdate();
 
     @GetMapping("/tcc/order")
-    Long tccOrder();
+    Wrapper<Long> tccOrder();
 }

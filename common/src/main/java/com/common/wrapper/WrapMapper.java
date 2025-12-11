@@ -25,5 +25,13 @@ public class WrapMapper {
         return wrap(code, message);
     }
 
+    public static <E> Wrapper<E> ok() {
+        return new Wrapper<>();
+    }
+
+    public static <E> Wrapper<E> ok(E o) {
+        return new Wrapper<>(Wrapper.SUCCESS_CODE, Wrapper.SUCCESS_MESSAGE, o);
+    }
+
 
 }

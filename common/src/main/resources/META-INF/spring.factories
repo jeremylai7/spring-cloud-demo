@@ -1,5 +1,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.common.handle.GlobalExceptionHandler
+  com.common.handle.GlobalExceptionHandler,\
+  com.common.handle.GlobalResponseHandler
 
 
 

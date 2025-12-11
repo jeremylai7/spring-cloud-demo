@@ -1,5 +1,6 @@
 package com.order.controlle;
 
+import com.common.annotation.EnableResponseHandler;
 import com.order.service.OrderTccAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @RequestMapping("/tcc")
+@EnableResponseHandler
 public class TccOrderController {
 
     @Autowired

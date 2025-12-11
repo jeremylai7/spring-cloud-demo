@@ -1,6 +1,8 @@
 package com.seata.service;
 
+import com.common.Test;
 import com.common.exception.BusinessException;
+import com.common.wrapper.BaseResponse;
 import com.common.wrapper.Wrapper;
 import com.seata.client.OrderClient;
 import com.seata.client.StockClient;
@@ -29,9 +31,9 @@ public class TccSeataService {
 
     @GlobalTransactional(name = "tcc-create-order", rollbackFor = Exception.class)
     public void placeOrder(BigDecimal num) {
-        Long orderId = orderClient.tccOrder();
-        log.info("订单id：{}", orderId);
-        Wrapper<String> result = stockClient.tccStock(num);
+        Wrapper<Long> orderId = orderClient.tccOrder();
+        log.info("订单id：{}", orderId.getResult());
+        BaseResponse<Test> result = stockClient.tccStock(num);
         if (!result.success()) {
             throw new BusinessException(result.getMessage());
         }
