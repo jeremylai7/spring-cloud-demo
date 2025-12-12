@@ -8,9 +8,9 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<groupId>com.gateway</groupId>
-	<artifactId>springcloud-geteway</artifactId>
+	<artifactId>springcloud-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springcloud-geteway</name>
+	<name>springcloud-gateway</name>
 	<description>Demo project for Spring Boot</description>
 	<dependencies>
 		<dependency>
