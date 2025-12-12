@@ -1,6 +1,7 @@
 package com.seata.proxy;
 
 import com.common.Test;
+import com.common.exception.BusinessException;
 import com.common.wrapper.BaseResponse;
 import com.seata.proxy.feign.StockFeign;
 import lombok.extern.slf4j.Slf4j;
@@ -23,10 +24,10 @@ public class StockFeignProxy {
     public String stock(Integer num) {
         BaseResponse<String> baseResponse = stockFeign.stock(num);
         if (baseResponse == null) {
-            throw new RuntimeException("扣减库存失败，请稍后再试");
+            throw new BusinessException("扣减库存失败，请稍后再试");
         }
         if (!baseResponse.success()) {
-            throw new RuntimeException(baseResponse.getMessage());
+            throw new BusinessException(baseResponse.getMessage());
         }
         return baseResponse.getResult();
     }
@@ -34,10 +35,10 @@ public class StockFeignProxy {
     public Test tccStock(java.math.BigDecimal num) {
         BaseResponse<Test> baseResponse = stockFeign.tccStock(num);
         if (baseResponse == null) {
-            throw new RuntimeException("TCC扣减库存失败，请稍后再试");
+            throw new BusinessException("TCC扣减库存失败，请稍后再试");
         }
         if (!baseResponse.success()) {
-            throw new RuntimeException(baseResponse.getMessage());
+            throw new BusinessException(baseResponse.getMessage());
         }
         return baseResponse.getResult();
     }
