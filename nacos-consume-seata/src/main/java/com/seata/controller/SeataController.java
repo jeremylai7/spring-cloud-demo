@@ -1,5 +1,6 @@
 package com.seata.controller;
 
+import com.common.annotation.EnableResponseHandler;
 import com.seata.config.SpringContextUtil;
 import com.seata.service.SeataService;
 
@@ -16,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
  * @desc:
  **/
 @RestController
+@EnableResponseHandler
 public class SeataController {
 
     @Autowired

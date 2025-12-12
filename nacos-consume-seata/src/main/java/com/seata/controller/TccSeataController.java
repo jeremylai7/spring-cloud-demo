@@ -1,6 +1,8 @@
 package com.seata.controller;
 
 import com.common.annotation.EnableResponseHandler;
+import com.common.wrapper.WrapMapper;
+import com.common.wrapper.Wrapper;
 import com.seata.service.TccSeataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,9 +31,9 @@ public class TccSeataController {
      *
      */
     @GetMapping("/seata")
-    public String seata(BigDecimal num) throws Exception {
+    public Wrapper seata(BigDecimal num) throws Exception {
         tccSeataService.placeOrder(num);
-        return "ok";
+        return WrapMapper.ok();
     }
 
 }

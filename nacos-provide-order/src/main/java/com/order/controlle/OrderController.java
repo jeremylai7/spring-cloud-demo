@@ -1,5 +1,6 @@
 package com.order.controlle;
 
+import com.common.annotation.EnableResponseHandler;
 import com.order.dao.OrderDao;
 import com.order.model.Order;
 import io.seata.core.context.RootContext;
@@ -16,6 +17,7 @@ import java.util.UUID;
  * @date: created in 2022/9/24
  * @desc:
  **/
+@EnableResponseHandler
 @RestController
 public class OrderController {
 

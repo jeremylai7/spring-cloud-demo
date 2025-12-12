@@ -4,8 +4,10 @@ import com.common.Test;
 import com.common.exception.BusinessException;
 import com.common.wrapper.BaseResponse;
 import com.common.wrapper.Wrapper;
-import com.seata.client.OrderClient;
-import com.seata.client.StockClient;
+import com.seata.proxy.OrderFeignProxy;
+import com.seata.proxy.StockFeignProxy;
+import com.seata.proxy.feign.OrderFeign;
+import com.seata.proxy.feign.StockFeign;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,20 +25,17 @@ import java.math.BigDecimal;
 public class TccSeataService {
 
     @Autowired
-    private OrderClient orderClient;
+    private OrderFeignProxy feignProxy;
 
     @Autowired
-    private StockClient stockClient;
+    private StockFeignProxy stockFeignProxy;
 
 
     @GlobalTransactional(name = "tcc-create-order", rollbackFor = Exception.class)
     public void placeOrder(BigDecimal num) {
-        Wrapper<Long> orderId = orderClient.tccOrder();
-        log.info("订单id：{}", orderId.getResult());
-        BaseResponse<Test> result = stockClient.tccStock(num);
-        if (!result.success()) {
-            throw new BusinessException(result.getMessage());
-        }
-        System.out.println(result);
+        Long orderId = feignProxy.tccOrder();
+        log.info("订单id：{}", orderId);
+        Test test = stockFeignProxy.tccStock(num);
+        log.info("返回 test：{}", test);
     }
 }
