@@ -1,5 +1,6 @@
 package com.seata.controller;
 
+import com.common.annotation.EnableResponseHandler;
 import com.seata.service.TccSeataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
  * @date: created in 2025/10/27
  * @desc:
  **/
+@EnableResponseHandler
 @RestController
 @RequestMapping("/tcc")
 public class TccSeataController {
