@@ -18,11 +18,15 @@ public class Test2Config {
     @NacosValue(value = "${test.name:null}",autoRefreshed = true)
     private String test;
 
-    @Value(value = "${test.name:null}")
+    @Value(value = "${test.name:#{null}}")
     private String test2;
 
-    @Value(value = "${hello.name:null}")
+    // 执行配置文件，就不会读默认配置文件
+    @Value(value = "${hello.name:#{null}}")
     private String hello;
+
+    @Value(value = "${common.name:#{null}}")
+    private String commonName;
 
 
 

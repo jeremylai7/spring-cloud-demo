@@ -24,6 +24,9 @@ public class TestController {
     @Autowired
     private TestConfig testConfig;
 
+    // 公共配置文件
+
+
     @GetMapping("/config")
     public String testConfig(){
         String test1 = test2Config.getTest();
@@ -33,6 +36,7 @@ public class TestController {
         String test3 = testConfig.getName();
         //@NacosValue 在2.0以及后续版本弃用
         return "第一种方式:" + test1  + ", 第二种方式:" + test2 + "" +
-                ",第三种方式:" + test3 + ", hello:" + test2Config.getHello();
+                ",第三种方式:" + test3 + ", hello:" + test2Config.getHello()
+                + ", 公共配置:" + test2Config.getCommonName();
     }
 }
