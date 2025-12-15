@@ -14,7 +14,7 @@ public class NacosConfigApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(NacosConfigApplication.class, args);
-        String username = applicationContext.getEnvironment().getProperty("user.name");
+        String username = applicationContext.getEnvironment().getProperty("test.name");
         System.out.println(username);
     }
 

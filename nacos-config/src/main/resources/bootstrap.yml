@@ -1,10 +1,15 @@
+server:
+  port: 8010
 spring:
   application:
     name: nacos-config
   cloud:
     nacos:
       config:
-        file-extension: properties
-        server-addr: 127.0.0.1:8848
-        namespace: 68468122-8955-45ee-a5b7-3d87972325b1
-        name: nacos-aa
+        file-extension: yml
+        server-addr: ${NACOS_HOST:localhost}:${NACOS_PORT:8848}
+        namespace: ${NACOS_NAMESPACE:public}
+        # 指定配置文件，如果不指定，默认读取 项目名-配置环境.后缀
+        # 写了指定文件只读指定配置文件，不然就读默认配置文件。
+        name: nacos-test
+

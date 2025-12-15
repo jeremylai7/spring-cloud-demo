@@ -1,34 +1,21 @@
 package com.nacos.config.config;
 
-import com.alibaba.nacos.api.config.annotation.NacosValue;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author: laizc
- * @Date: Created in 16:43 2020-01-17
+ * @author: laizc
+ * @date: 2025/12/15 16:33
+ * @desc:
  */
+@Data
 @Component
-@RefreshScope
+@ConfigurationProperties(prefix = "test")
 public class TestConfig {
 
-    @NacosValue(value = "${user.name:null}",autoRefreshed = true)
-    private String test;
+    private String name;
 
-    @Value(value = "${user.name:null}")
-    private String test2;
-
-    public String getTest2() {
-        return test2;
-    }
-
-    public String getTest(){
-        return test;
-    }
-
-
-
-
+    private String password;
 
 }

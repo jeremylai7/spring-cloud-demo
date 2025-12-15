@@ -1,6 +1,8 @@
 package com.nacos.config.controller;
 
+import com.nacos.config.config.Test2Config;
 import com.nacos.config.config.TestConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -13,24 +15,24 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
-@RefreshScope
+@Slf4j
 public class TestController {
 
-    @Value(value = "${user.name:null}")
-    private String test;
+    @Autowired
+    private Test2Config test2Config;
 
     @Autowired
     private TestConfig testConfig;
 
-    /**
-     * 使用 nacos-config-spring-boot-starter 才能使用@NacosValues配置
-     * 使用@Value需要添加@RefreshScope实现自动更新配置
-     * @return
-     */
     @GetMapping("/config")
     public String testConfig(){
-        String aa = testConfig.getTest();
-        //第一种方式要添加 nacos-config-spring-boot-starter 才能使用 @NacosValue 注解获取数据
-        return "第一种方式:" + aa  + ",第二种方式:" + test + ",第三种方式：" + testConfig.getTest2();
+        String test1 = test2Config.getTest();
+        // 不自动刷新
+        String test2 = test2Config.getTest2();
+        // 自动刷新配置
+        String test3 = testConfig.getName();
+        //@NacosValue 在2.0以及后续版本弃用
+        return "第一种方式:" + test1  + ", 第二种方式:" + test2 + "" +
+                ",第三种方式:" + test3 + ", hello:" + test2Config.getHello();
     }
 }
