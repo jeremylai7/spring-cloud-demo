@@ -1,13 +1,8 @@
 package com.seata.service;
 
 import com.common.Test;
-import com.common.exception.BusinessException;
-import com.common.wrapper.BaseResponse;
-import com.common.wrapper.Wrapper;
 import com.seata.proxy.OrderFeignProxy;
 import com.seata.proxy.StockFeignProxy;
-import com.seata.proxy.feign.OrderFeign;
-import com.seata.proxy.feign.StockFeign;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
