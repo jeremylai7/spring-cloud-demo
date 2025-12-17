@@ -2,7 +2,7 @@ server:
   port: 8042
 spring:
   application:
-    name: nacos-seata-consume123
+    name: nacos-seata-consume
   cloud:
     alibaba:
       # 配置服务分组
